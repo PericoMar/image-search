@@ -62,7 +62,7 @@ async function cargarImagenesComun(apiUrl) {
             imgContainer.appendChild(likes);
 
             img.addEventListener("click", () => {
-                ampliarImagen(json.urls.full);
+                ampliarImagen(json.urls.regular);
             });
 
             resultado.appendChild(imgContainer);
