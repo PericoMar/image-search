@@ -48,14 +48,46 @@ async function cargarImagenesComun(apiUrl) {
         console.log(data);
 
         for (const json of data.results || data) {
+            const imgContainer = document.createElement("div");
+            imgContainer.classList.add("imagen-container");
+
             const img = document.createElement("img");
             img.src = json.urls.regular;
             img.classList.add("imagen");
-            resultado.appendChild(img);
+            imgContainer.appendChild(img);
+
+            const likes = document.createElement("span");
+            likes.textContent = `Likes: ${json.likes}`;
+            likes.classList.add("likes");
+            imgContainer.appendChild(likes);
+
+            img.addEventListener("click", () => {
+                ampliarImagen(json.urls.full);
+            });
+
+            resultado.appendChild(imgContainer);
         }
     } catch (error) {
         console.error("Error al cargar imágenes:", error);
     }
+}
+
+// Obtener el modal y la imagen dentro del modal
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("imagenAmpliada");
+
+// Obtener todos los elementos de cierre (botones de cierre y el área de fondo)
+const closeElements = document.getElementsByClassName("close");
+
+for (const closeElement of closeElements) {
+    closeElement.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+function ampliarImagen(url){
+    modal.style.display = "block"; // Mostrar el modal
+    modalImg.src = url; // Establecer la imagen en el modal
 }
 
 async function cargarImagenes(page = 1) {
