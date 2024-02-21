@@ -1,10 +1,13 @@
-.imagen-container{
-  width:30%;
+.imagen-container {
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column;
   margin: 20px 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px 0px;
 }
 
 .imagen-container:hover{
@@ -15,6 +18,7 @@
     max-width: 100%; /* Puedes ajustar este valor según tus necesidades */
     height: auto;
     margin-bottom: 20px;
+    margin-top: auto;
   }
 
 .likes {
@@ -22,6 +26,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
 }
 .heart-icon {
     width: 20px;
